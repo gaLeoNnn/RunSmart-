@@ -1,0 +1,20 @@
+* {
+  font-family: "Museo Sans Cyrcl", sans-serif;
+}
+.container {
+  max-width: 970px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+@import "./promo.scss";
+@import "./buttons.scss";
+@import "./advantage.scss";
+@import "./title.scss";
+@import "./consultation.scss";
+@import "./forms.scss";
+@import "./carousel";
+@import "./catalog.scss";
+@import "./feed.scss";
+@import "./footer.scss";
+@import "./modal.scss";
