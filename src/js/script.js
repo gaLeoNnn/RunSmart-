@@ -9,6 +9,7 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+//TABS
 const tabs = document.querySelectorAll(".catalog__tab");
 const content = document.querySelectorAll(".catalog__content");
 
@@ -26,6 +27,7 @@ tabs.forEach((item) => {
   });
 });
 
+//
 const btn = document.querySelectorAll(".catalog-item__link");
 const btnBack = document.querySelectorAll(".catalog-item__back");
 
@@ -49,5 +51,53 @@ btnBack.forEach((item, index) => {
     const ul = target.querySelector(".catalog-item__list");
     list.classList.toggle("catalog-item__content_active");
     ul.classList.toggle("catalog-item__list_active");
+  });
+});
+
+// MODAL
+const btnConsult = document.querySelectorAll(
+  "button[data-attribute='consultation']"
+);
+const overlay = document.querySelector(".overlay");
+const modalConsult = document.getElementById("consultation");
+const close = document.querySelectorAll(".modal__close");
+
+btnConsult.forEach((item) => {
+  item.addEventListener("click", () => {
+    overlay.style.visibility = "visible";
+    overlay.classList.add("show");
+    modalConsult.style.visibility = "visible";
+    modalConsult.classList.add("slow");
+  });
+});
+
+const minBtn = document.querySelectorAll(".catalog-item__btn");
+const modalOrder = document.getElementById("order");
+const subtitie = document.querySelectorAll(".catalog-item__title");
+
+minBtn.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const parent = e.target.parentElement.parentElement;
+    const title = parent.querySelector(".catalog-item__title");
+    const forChange = modalOrder.querySelector(".modal__subtitle");
+
+    forChange.textContent = title.textContent;
+
+    overlay.style.visibility = "visible";
+    overlay.classList.add("show");
+    modalOrder.style.visibility = "visible";
+    modalOrder.classList.add("slow");
+  });
+});
+
+//close all modal elements
+close.forEach((item) => {
+  item.addEventListener("click", () => {
+    overlay.style.visibility = "hidden";
+    overlay.classList.remove("show");
+    modalConsult.style.visibility = "hidden";
+    modalConsult.classList.remove("slow");
+    modalOrder.style.visibility = "hidden";
+    modalOrder.classList.remove("slow");
   });
 });
