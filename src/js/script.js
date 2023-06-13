@@ -80,9 +80,7 @@ minBtn.forEach((item) => {
     const parent = e.target.parentElement.parentElement;
     const title = parent.querySelector(".catalog-item__title");
     const forChange = modalOrder.querySelector(".modal__subtitle");
-
     forChange.textContent = title.textContent;
-
     overlay.style.visibility = "visible";
     overlay.classList.add("show");
     modalOrder.style.visibility = "visible";
@@ -100,4 +98,91 @@ close.forEach((item) => {
     modalOrder.style.visibility = "hidden";
     modalOrder.classList.remove("slow");
   });
+});
+
+//validation
+
+const formConsult = modalConsult.querySelector(".feed-form");
+
+function validation(form) {
+  let result = true;
+
+  function createError(input, text) {
+    const parent = input.parentNode;
+    parent.classList.add("error");
+    const errorLabel = document.createElement("label");
+    errorLabel.classList.add("error__label");
+    errorLabel.textContent = text;
+    parent.append(errorLabel);
+    console.log(parent);
+  }
+
+  function removeError(input) {
+    const parent = input.parentNode;
+    console.log(input);
+    if (parent.classList.contains("error")) {
+      parent.querySelector(".error__label").remove();
+      parent.classList.remove("error");
+    }
+  }
+
+  form.querySelectorAll("input").forEach((input) => {
+    removeError(input);
+
+    if (input.dataset.minLength) {
+      if (input.value.length < input.dataset.minLength) {
+        createError(
+          input,
+          `Минимальное кол-во символов ${input.dataset.minLength}`
+        );
+        result = false;
+      }
+    }
+
+    if (input.dataset.maxLength) {
+      if (input.value.length > input.dataset.maxLength) {
+        createError(
+          input,
+          `Максимальное кол-во символов ${input.dataset.maxLength}`
+        );
+        result = false;
+      }
+    }
+
+    if (input.dataset.required == "true") {
+      if (input.value == "") {
+        removeError(input);
+        createError(input, "Поле не заполнено!");
+        result = false;
+      }
+    }
+  });
+
+  return result;
+}
+
+formConsult.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (validation(formConsult) === true) {
+    alert("its ok");
+  }
+});
+
+const mainForm = document.getElementById("consultation-form");
+
+mainForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (validation(mainForm) === true) {
+    alert("its ok");
+  }
+});
+const orderForm = document.getElementById("order");
+
+orderForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (validation(orderForm) === true) {
+    alert("its ok");
+  }
 });

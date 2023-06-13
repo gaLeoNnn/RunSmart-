@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: column;
   width: 300px;
+
   input {
+    width: 100%;
     padding: 0 20px;
     border-radius: 5px;
     height: 54px;
-    background: #ffffff;
     margin-bottom: 15px;
     border: none;
     font-weight: 400;
@@ -18,7 +19,21 @@
       margin-bottom: 20px;
     }
   }
+  input:focus {
+    outline: none;
+  }
   &_modal {
     margin-top: 25px;
+  }
+
+  .error {
+    input {
+      margin-bottom: 0;
+      border: 1px solid #ee0404;
+    }
+    &__label {
+      color: red;
+      margin-bottom: 10px;
+    }
   }
 }
