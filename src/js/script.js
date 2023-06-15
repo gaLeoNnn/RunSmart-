@@ -186,3 +186,30 @@ orderForm.addEventListener("submit", (e) => {
     alert("its ok");
   }
 });
+
+//pageup
+
+// window.onscroll = function () {
+//   scrollFunction();
+// };
+
+const up = document.querySelector(".pageup");
+// function scrollFunction() {
+//   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+//     up.classList.add("pageup__show");
+//   } else {
+//     up.classList.remove("pageup__show");
+//   }
+// }
+
+window.addEventListener("scroll", () => {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    up.classList.add("pageup__show");
+    console.log("he");
+  } else {
+    up.classList.remove("pageup__show");
+  }
+});
+window.addEventListener("load", () => {
+  new WOW().init();
+});

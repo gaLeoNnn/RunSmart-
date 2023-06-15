@@ -10,11 +10,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="./css/animation.css" />
     <link rel="stylesheet" href="./css/style.min.css" />
     <title>Pulse</title>
   </head>
   <body>
-    <section class="promo">
+    <section id="up" class="promo">
       <div class="container">
         <header class="header">
           <a href="#" class="header__logo"
@@ -70,7 +71,7 @@
             готовятся к соревнованиям по триатлону!
           </div>
           <div class="advantage__item">
-            <img src="./icons/heart.png" alt="" />
+            <img src="./icons/heart.svg" alt="heart" class="advantage__icon" />
             <span>Заботимся о здоровье</span>
             Мы работаем для того, чтобы Ваши занятия спортом шли на пользу
             Вашему здоровью и были в радость Вам и Вашим близким!
@@ -483,7 +484,11 @@
     <section class="feed">
       <div class="container">
         <div class="title">отзывы клиентов</div>
-        <div class="feed__item">
+        <div
+          class="feed__item fadeInUp wow"
+          data-wow-duration="1s"
+          data-wow-delay="1s"
+        >
           <img src="./img/photo_1.png" alt="" class="feed__img" />
           <div class="feed__content">
             <div class="feed__name">Ирина Иванченко</div>
@@ -499,7 +504,11 @@
             </div>
           </div>
         </div>
-        <div class="feed__item">
+        <div
+          class="feed__item fadeInUp wow"
+          data-wow-duration="1s"
+          data-wow-delay="1s"
+        >
           <img src="./img/photo_2.png" alt="" class="feed__img" />
           <div class="feed__content">
             <div class="feed__name">Иван Сёмочкин</div>
@@ -515,7 +524,11 @@
             </div>
           </div>
         </div>
-        <div class="feed__item">
+        <div
+          class="feed__item fadeInUp wow"
+          data-wow-duration="1s"
+          data-wow-delay="1s"
+        >
           <img src="./img/photo_3.png" alt="" class="feed__img" />
           <div class="feed__content">
             <div class="feed__name">Юлия Дашкина</div>
@@ -645,7 +658,9 @@
         </div>
       </div>
     </div>
+    <a href="#up" class="pageup"><img src="./icons/pageup.svg" alt="" /></a>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
